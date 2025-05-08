@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AboutPage</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<body>
+    <header>
+        <nav>
+            <ul class="menu" id="menu">
+                <li><a href="index.html"> <span class="Homecaps"><img src="/Images/home.png" class="HomeIcon" /></span></a></li>
+                <li><a href="About.html"> <span class="caps">ABOUT</span></a></li>
+                <li><a href="Collaborators.html"> <span class="caps">COLLABORATOR</span></a></li>
+                <li><a href="Portfolio.html"> <span class="caps">PORTFOLIO</span></a></li>
+                <li><a href="GetInTouch.html"><span class="caps">GET IN TOUCH</span></a></li>
+                <li><a href="GivingBack.html"><span class="caps">GIVING BACK</span></a></li>
+                <li><a href="GetInspired.html"><span class="caps">GET INSPIRED</span></a></li>
+            </ul>
+
+        </nav>
+    </header>
+    <section class="collab-section">
+        <div class="collab-title-container">
+            <h3 class="MainColbText">
+                <span>R</span><span>E</span><span>C</span><span>E</span><span>N</span><span>T</span>&nbsp;
+                <span class="colbText">C</span><span class="colbText">O</span><span class="colbText">L</span><span class="colbText">L</span><span class="colbText">A</span><span class="colbText">B</span><span class="colbText">O</span><span class="colbText">R</span><span class="colbText">A</span><span class="colbText">T</span><span class="colbText">I</span><span class="colbText">O</span><span class="colbText">N</span><span class="colbText">S</span>&nbsp;<span>I</span><span>N</span><span>C</span><span>L</span><span>U</span><span>D</span><span>E</span>
+              </h3>
+              
+        </div>
+      
+      </section>
+      <section>
+        <div class="container colbMainImage">
+            <img src="Images/colb01.png"/>
+            <img src="Images/colb02.png"/>
+            <img src="Images/colb03.png"/>
+            <img src="Images/colb04.png"/>
+            <img src="Images/colb05.jpg"/>
+            <img src="Images/colb06.png"/>
+            <img src="Images/colb07.jpg"/>
+            <img src="Images/colb08.jpg"/>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+            <div class="d-flex justify-content-end align-item-end colbButton">
+                <div>
+                    <div >
+                        <button class="collab-btn">SHOW ME SOME CASE STUDY >></button>
+                    </div>
+                   <div>
+                    <button class="collab-btn">NAH, SKIP THAT & GET IN TOUCH >></button>
+    
+                   </div>
+                </div>
+        
+            </div>
+          </div>
+      </section>
+    <footer class="main-footer">
+        <div>
+            <h5 class="text-light">Radha Krishnan</h5>
+        </div>
+        <div>
+            <ul class="footer-menu">
+                <li><a href="#">About RK</a></li>
+                <li><a href="#">Collaborators</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Get Inspired</a></li>
+                <li><a href="#">Giving Back</a></li>
+              </ul>
+        </div>
+        <div>
+            <ul class="footer-menu">
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Social</a></li>
+              </ul>
+        </div>
+        
+        <p class="text-secondary ">Site design & content by Radha Krishnan ©2021
+            All rights reserved.</p>
+
+      </footer>
+      
+      <script>
+        const text = document.querySelector('.MainColbText');
+        const chars = text.textContent.trim().split('');
+        text.innerHTML = chars.map((char, i) =>
+          `<span style="animation-delay:${i * 0.05}s">${char}</span>`
+        ).join('');
+      </script>
+      
+      
+
+</body>
+
+</html>

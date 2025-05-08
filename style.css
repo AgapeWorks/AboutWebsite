@@ -1,0 +1,750 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.full-screen-image {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/Images/MainImg.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Container to center horizontally and vertically */
+.image-container {
+  position: absolute;
+  top: 40%;
+  left: 25%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+
+/* Hi image fade in */
+.hi-image {
+  opacity: 0;
+  animation: fadeIn 2s ease-in forwards;
+}
+
+/* Dot image slide in */
+.dot-image {
+  margin-left: 0;
+  margin-top: 9%;
+  width: 50px;
+  opacity: 0;
+  animation: slideDot 2s ease-out forwards;
+  ;
+  animation-delay: 0.5s;
+  /* wait until hi-image is shown */
+}
+
+.man-image {
+  height: 500px;
+  width: 250px;
+  margin-left: 20px;
+  /* space from dot image */
+  opacity: 0;
+  transform: translateY(0px);
+  /* start lower */
+  animation: riseUp 2s ease-in-out forwards;
+  animation-delay: 5s;
+  /* play after dot has animated */
+}
+
+/* Base styling for the J and K letter images */
+.J-Letter,
+.K-Letter {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  /* Center vertically */
+  transform: translateY(-50%);
+}
+
+/* J-Letter (move left to right) */
+.J-Letter {
+  left: 100px;
+  /* Start off-screen to the left */
+  top: -20px;
+  animation: moveJ 3s ease-in-out forwards;
+  animation-delay: 2s;
+  /* Wait before starting */
+}
+
+/* K-Letter (move right to left) */
+.K-Letter {
+  right: -100px;
+  /* Start off-screen to the right */
+  top: -20px;
+  animation: moveK 3s ease-in-out forwards;
+  animation-delay: 2s;
+  /* Same timing as J */
+}
+
+/* ACOB and EMP image styles */
+.ACOB-Letter,
+.EMP-Letter,
+.EnterButton {
+  opacity: 0;
+  animation: fadeInDelayed 2s ease-in forwards;
+  animation-delay: 6s;
+  /* wait 10 seconds before starting */
+}
+
+.EMP-Letter {
+  margin-left: 120px;
+}
+
+.ACOB-Letter {
+  margin-left: 120px;
+}
+
+.kempSection {
+  display: flex;
+}
+
+.EnterButton.no-border {
+  border: none;
+  /* Remove the border */
+}
+
+.EnterButton {
+  margin-top: 30px;
+  background-color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: black;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.EnterButton:hover {
+  transform: scale(1.1);
+  background-color: blue;
+  color: white;
+  border-color: blue;
+}
+
+/* Animation for J-Letter moving left to right */
+@keyframes moveJ {
+  100% {
+    top: 33%;
+    left: 44%;
+    /* Position in front of ACOB (adjust as needed) */
+    opacity: 1;
+  }
+}
+
+/* Animation for K-Letter moving right to left */
+@keyframes moveK {
+  100% {
+    top: 67%;
+    right: 42%;
+    /* Position in front of EMP (adjust as needed) */
+    opacity: 1;
+  }
+}
+
+
+/* Rise-up animation */
+@keyframes riseUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide dot image from right into place */
+@keyframes slideDot {
+  0% {
+    transform: translate(200px, 150px);
+    /* 45° angle movement */
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+/* Base fade-in animation */
+@keyframes fadeInDelayed {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  /* Optional spacing between items */
+  padding: 0;
+  margin: 0;
+}
+
+
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  color: white;
+  padding: 50px 0px;
+}
+
+.logo {
+  font-size: 1.5em;
+}
+
+
+
+.menu li {
+  display: inline;
+  padding: 0px 15px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.menu li {
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.menu li:hover {
+  transform: scale(1.1);
+}
+
+.menu li:hover a {
+  color: black;
+}
+
+.menu li:hover .caps {
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .menu.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+.caps {
+  display: block;
+  font-size: 0.75em;
+  color: #aaa;
+  font-weight: normal;
+  line-height: 1;
+  margin-top: 15px;
+}
+
+.HomeIcon {
+  height: 30px;
+  width: 30px;
+}
+
+.intro-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  /* Center horizontally */
+  padding: 20px;
+}
+
+.intro-row {
+  display: flex;
+  justify-content: start;
+  /* Horizontal center */
+  align-items: center;
+  gap: 20px;
+  letter-spacing: 2px;
+}
+
+.intro-text {
+  text-align: Start;
+}
+
+.intro-image {
+  display: flex;
+  justify-content: Start;
+}
+
+.intro-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.Letters {
+  letter-spacing: 2px;
+}
+
+.intro-text h6 {
+  font-size: 2rem;
+  /* Increase text size */
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  /* Customize colors */
+  font-weight: bold;
+  margin: 0;
+}
+
+.intro-text h6 {
+  font-size: 2.5rem;
+  /* Increase text size */
+  font-weight: bold;
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  /* Gradient colors */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* Fallback for some browsers */
+  color: transparent;
+  /* Ensures gradient is visible */
+}
+
+.main-footer {
+  background-color: #edf0f2;
+  padding: 40px 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
+.footer-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.footer-menu li a {
+  color: #000;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-menu li a:hover {
+  color: #ff7e5f;
+}
+
+.collab-links {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.collab-btn {
+  background: none;
+  border: none;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.collab-btn:hover {
+  color: blue;
+  transform: scale(1.1);
+}
+
+.collab-section {
+  display: flex;
+  justify-content: center;
+  /* Horizontally center the content */
+  padding: 40px 20px;
+}
+
+.collab-title-container {
+  text-align: center;
+}
+
+
+body.modal-blur::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(15px);
+  /* This creates the blur */
+  z-index: 1040;
+  /* Just below Bootstrap modal (1050) */
+}
+
+.modalTitle {
+  font-size: 30px;
+  font-weight: lighter;
+  padding: 30px 0px;
+}
+
+.modal-body h6 {
+  line-height: 1.6;
+}
+
+.modal-body h6 {
+  color: #515151;
+  font-size: 25px;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.modal-background-text {
+  position: fixed;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 500;
+  color: #000;
+  z-index: 1040;
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeInText 1s ease-in forwards;
+  animation-delay: 1s;
+  background: linear-gradient(90deg, #191cd0, #df0000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes fadeInText {
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-background-text {
+  display: none;
+}
+
+
+.LearnButton {
+  margin-top: 50px;
+}
+
+.MainColbText {
+  letter-spacing: 12px;
+  margin: 50px 0px;
+}
+
+.colbText {
+  background: linear-gradient(90deg, #191cd0, #c9b308, #df0000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.MainColbText span {
+  opacity: 0;
+  display: inline-block;
+  animation: fadeInLetters 0.5s forwards;
+}
+
+.MainColbText span:nth-child(1) { animation-delay: 0s; }
+.MainColbText span:nth-child(2) { animation-delay: 0.1s; }
+.MainColbText span:nth-child(3) { animation-delay: 0.2s; }
+/* ... repeat or use JS for dynamic delays ... */
+.MainColbText span:nth-child(n+4) {
+  /* just as example; ideally write JS to handle this */
+}
+
+@keyframes fadeInLetters {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+.colbMainImage img{
+height: 200px;
+width: 300px;
+padding: 50px;
+transition: transform 0.5s ease; 
+}
+.colbMainImage img:hover {
+  transform: scale(1.3); /* Zoom by 10% */
+}
+.colbButton{
+  padding: 50px;
+}
+.portmainText{
+  font-size: 30px;
+  font-weight: lighter;
+  color: rgb(154, 154, 154);
+}
+.intro-section .container {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 30px;                /* optional spacing between items */
+}
+
+.touchContact h6,p{
+color: #d1d1d1;
+font-weight: lighter;
+}
+
+/* Text fade-in */
+.portmainText,
+.text-secondary {
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
+
+.portmainText {
+  animation-delay: 0.5s;
+}
+
+.text-secondary {
+  animation-delay: 1.5s;
+}
+
+/* Arrow animation: moves right to left after text is shown */
+.intro-section img {
+  opacity: 0;
+  animation: arrowSlide 2s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+/* Fade-in keyframes */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Arrow slide keyframes */
+@keyframes arrowSlide {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.porttitle h6{
+  padding: 12px;
+  font-size: 20px;
+  font-weight: lighter;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 2s ease forwards;
+  animation-delay:5s;
+}
+.porttitle h6:nth-child(1) {
+  color: #e63946; /* red */
+}
+.porttitle h6:nth-child(2) {
+  color: #f1a208; /* orange */
+}
+.porttitle h6:nth-child(3) {
+  color: #2a9d8f; /* teal */
+}
+.porttitle h6:nth-child(4) {
+  color: #457b9d; /* blue */
+}
+.porttitle h6:nth-child(5) {
+  color: #6a4c93; /* purple */
+}
+.porttitle h6:nth-child(6) {
+  color: #1d3557; /* navy */
+}
+.porttitle h6:nth-child(7) {
+  color: #ffafcc; /* pink */
+}
+.porttitle h6:nth-child(8) {
+  color: #06d6a0; /* mint */
+}
+.porttitle h6:nth-child(9) {
+  color: #f77f00; /* amber */
+}
+
+.porttitle h6:nth-child(1) {
+  color: #e63946;
+  animation-delay: 0s;
+}
+.porttitle h6:nth-child(2) {
+  color: #f1a208;
+  animation-delay: 0.5s;
+}
+.porttitle h6:nth-child(3) {
+  color: #2a9d8f;
+  animation-delay: 1s;
+}
+.porttitle h6:nth-child(4) {
+  color: #457b9d;
+  animation-delay: 1.5s;
+}
+.porttitle h6:nth-child(5) {
+  color: #6a4c93;
+  animation-delay: 2s;
+}
+.porttitle h6:nth-child(6) {
+  color: #1d3557;
+  animation-delay: 2.5s;
+}
+.porttitle h6:nth-child(7) {
+  color: #ffafcc;
+  animation-delay: 3s;
+}
+.porttitle h6:nth-child(8) {
+  color: #06d6a0;
+  animation-delay: 3.5s;
+}
+.porttitle h6:nth-child(9) {
+  color: #f77f00;
+  animation-delay: 4s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-paragraphs {
+  padding: 0px 20px;
+}
+.fade-paragraphs p {
+  opacity: 0;
+  transform: translateX(-60px);
+  animation: fadeInRight 1s ease forwards;
+}
+
+.fade-paragraphs p:nth-child(1) {
+  animation-delay: 4.5s; /* Adjust based on h6 animations */
+}
+
+.fade-paragraphs p:nth-child(2) {
+  animation-delay: 4.5s;
+}
+
+@keyframes fadeInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.portCollabButton{
+
+  margin: 0px 60px;
+ 
+ }
+.portCollabButton button{
+ letter-spacing: 2px;
+ font-size: 20px;
+ margin: 20px 0px;
+
+}
+.TouchTitle h4{
+ font-weight: lighter;
+ font-size: 25px;
+}
+.touch-section{
+  margin: 0px 200px;
+}
+.contact-container {
+  display: flex;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  gap: 40px;
+  align-items: center;
+}
+
+.left-image img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 8px;
+}
+
+.right-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.right-form input,
+.right-form textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 500px;
+}
+
+.right-form button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.right-form button:hover {
+  background-color: #0056b3;
+}
+.touchsub h4{
+  letter-spacing: 15px;
+  font-weight: 400;
+}
+.MintextEffects{
+  letter-spacing: 3px;
+  font-size: 25px;
+  font-weight: lighter;
+}
