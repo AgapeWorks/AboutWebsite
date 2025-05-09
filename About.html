@@ -13,8 +13,8 @@
     <header>
         <nav>
             <ul class="menu" id="menu">
-                <li><a href="index.html"> <span class="Homecaps"><img src="/Images/home.png" class="HomeIcon" /></span></a></li>
-                <li><a href="About.html"> <span class="caps">ABOUT</span></a></li>
+                <li><a href="index.html"> <span class="Homecaps"><img src="/Images/home.png"class="HomeIcon" /></span></a></li>
+                <li><a href="About.html" class="active"><span class="caps">ABOUT</span></a></li>
                 <li><a href="Collaborators.html"> <span class="caps">COLLABORATOR</span></a></li>
                 <li><a href="Portfolio.html"> <span class="caps">PORTFOLIO</span></a></li>
                 <li><a href="GetInTouch.html"><span class="caps">GET IN TOUCH</span></a></li>
@@ -30,29 +30,40 @@
                 <div class="intro-text">
                     <!-- <h6>Hi RK</h6> -->
                 </div>
-                <div class="intro-image">
-                    <img src="Images/JK.avif" class="m-4" alt="JK Image" />
-                    <p class="mt-4 text-secondary">Jacob Kemp is a creative director, designer, and writer whose work focuses on
-                        clarity,
-                        storytelling, and building uncommonly motivating brands and ideas.
-                        In 2023, his work received two Gold Awards in the Graphis International Competition, for Design
-                        and Advertising. He was also the recipient of the Silver Grand Prize at the Fifteenth Annual
-                        Solas Awards for his personal essay ‘The House Within’ reflecting on creativity during the
-                        COVID-19 pandemic. In 2021, SPINE Magazine named Kemp an emerging designer to watch in cover
-                        design, key art, and illustration. His work has been featured by Communication</p>
+                <div class="intro-image row">
+                    <div class="col-sm-3">
+                        <img src="Images/JK.avif" class="m-4 responsive-img" width="300" height="300" alt="JK Image" />
+
+                    </div>
+                    <div class="col-sm-9">
+                        <p class="mt-4 text-secondary ms-2">Jacob Kemp is a creative director, designer, and writer
+                            whose work focuses on
+                            clarity,
+                            storytelling, and building uncommonly motivating brands and ideas.
+                            In 2023, his work received two Gold Awards in the Graphis International Competition, for
+                            Design
+                            and Advertising. He was also the recipient of the Silver Grand Prize at the Fifteenth Annual
+                            Solas Awards for his personal essay ‘The House Within’ reflecting on creativity during the
+                            COVID-19 pandemic. In 2021, SPINE Magazine named Kemp an emerging designer to watch in cover
+                            design, key art, and illustration. His work has been featured by Communication</p>
+                    </div>
+
                 </div>
 
             </div>
             <div class="ms-5 Letters">
-                <p class="text-secondary">Arts, It’s Nice That, The World Illustration Awards, and has become a case study for
+                <p class="text-secondary">Arts, It’s Nice That, The World Illustration Awards, and has become a case
+                    study for
                     Columbia
                     University/Teachers College Arts Administration Program. In 2023, he will be a guest speaker this
                     year at Parsons/The New School, and New York University.</p>
-                <p class="text-secondary">Kemp is also an actor known for creating roles on stage, film, and television, having
+                <p class="text-secondary">Kemp is also an actor known for creating roles on stage, film, and television,
+                    having
                     appeared in
                     Black-ish, Why Him, Newsies, and Broad City. Kemp also received a SAG Award for his work as a cast
                     member of the celebrated series, The Marvelous Mrs. Maisel.</p>
-                <p class="text-secondary">Instead of coloring inside the lines, organizing his life into clear divisions – he encourages the
+                <p class="text-secondary">Instead of coloring inside the lines, organizing his life into clear divisions
+                    – he encourages the
                     strange, beautiful, funny, unpredictable, poetic, messy, honest pieces to come together – and lets
                     them weave a story entirely their own. While the client list and portfolio is diverse, at the heart
                     of his work lies two things: storytelling and identity. Whatever the medium, no matter the scale,
@@ -60,16 +71,17 @@
 
                     Jacob graduated from Yale cum laude with distinction in the arts, where he was the recipient of the
                     Glenn de Chabert Prize, the Louis S. Gimbel Scholarship, and was a Yale Trust of Boston Scholar.</p>
-                <p class="text-secondary">He commutes between Boston and New York and is terribly grateful for Amtrak.</p>
-                <h5 class="textEffects">YAK YAK YAK YAK...ENOUGH TALK.  CAN WE PLAY YET?</h5>
-                    <div class="collab-links">
-                        <button class="collab-btn">>> RECENT COLLABORATIONS</button>
-                        <button class="collab-btn">>> GIVING BACK</button>
-                        <button class="collab-btn">>> CONTACT</button>
-                        <button class="collab-btn">>> CONNECT</button>
-                      </div>
-                      
-                      
+                <p class="text-secondary">He commutes between Boston and New York and is terribly grateful for Amtrak.
+                </p>
+                <h5 class="textEffects">YAK YAK YAK YAK...ENOUGH TALK. CAN WE PLAY YET?</h5>
+                <div class="collab-links">
+                    <button class="collab-btn">>> RECENT COLLABORATIONS</button>
+                    <button class="collab-btn">>> GIVING BACK</button>
+                    <button class="collab-btn">>> CONTACT</button>
+                    <button class="collab-btn">>> CONNECT</button>
+                </div>
+
+
             </div>
         </div>
     </section>
@@ -84,23 +96,31 @@
                 <li><a href="#">Portfolio</a></li>
                 <li><a href="#">Get Inspired</a></li>
                 <li><a href="#">Giving Back</a></li>
-              </ul>
+            </ul>
         </div>
         <div>
             <ul class="footer-menu">
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">Social</a></li>
-              </ul>
+            </ul>
         </div>
-        
-        <p class="text-secondary ">Site design & content by Radha Krishnan ©2021
+
+        <p class="text-secondary ">Site design & content by <br>Radha Krishnan ©2021
             All rights reserved.</p>
 
-      </footer>
-      
+    </footer>
 
-      
+
+
     <script>
+        const currentPath = window.location.pathname.split("/").pop(); // e.g., About.html
+        const menuLinks = document.querySelectorAll("#menu a");
+
+        menuLinks.forEach(link => {
+            if (link.getAttribute("href") === currentPath) {
+                link.classList.add("active");
+            }
+        });
         function toggleMenu() {
             const menu = document.getElementById('menu');
             menu.classList.toggle('show');

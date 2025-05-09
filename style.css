@@ -37,7 +37,6 @@ body {
   width: 50px;
   opacity: 0;
   animation: slideDot 2s ease-out forwards;
-  ;
   animation-delay: 0.5s;
   /* wait until hi-image is shown */
 }
@@ -215,6 +214,19 @@ nav {
   font-size: 1.5em;
 }
 
+.menu a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 16px;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.menu a.active {
+  border-bottom: 1px solid #007BFF; /* Blue bottom border */
+  color: #007BFF; /* Optional: match text color to border */
+  font-weight: bold;
+}
 
 
 .menu li {
@@ -309,9 +321,7 @@ nav {
 
 .intro-image img {
   max-width: 100%;
-  height: auto;
-  display: block;
-}
+  }
 
 .Letters {
   letter-spacing: 2px;
@@ -342,11 +352,11 @@ nav {
 
 .main-footer {
   background-color: #edf0f2;
-  padding: 40px 0;
+  padding: 40px 0px 10px 0px;
   text-align: center;
   display: flex;
   justify-content: center;
-  gap: 100px;
+  gap: 50px;
 }
 
 .footer-menu {
@@ -363,7 +373,7 @@ nav {
 .footer-menu li a {
   color: #000;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 0.8rem;
   transition: color 0.3s ease;
 }
 
